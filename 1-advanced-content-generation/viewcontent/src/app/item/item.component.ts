@@ -49,6 +49,8 @@ export class ItemComponent implements OnInit, AfterViewInit, AfterContentInit {
   // @ViewChildren(LogService, { read: ChildComponent } ) elements: QueryList<ChildComponent>;
   // @ContentChild('h', { static: false } ) element: ElementRef;
 
+  @ViewChildren(MarkerDirective, { read: MarkerDirective } ) markerDirective;
+
   dynamicComponent; 
   
 
@@ -81,6 +83,7 @@ export class ItemComponent implements OnInit, AfterViewInit, AfterContentInit {
     const { LazyComponent } = await import('../lazy/lazy.component');
     const lazyComponentFactory = this.cfr.resolveComponentFactory(LazyComponent);
     const lazyComponent = this.view.createComponent(lazyComponentFactory);
+    // this.markerDirective.view.createComponent(lazyComponentFactory);
   }
    
 
